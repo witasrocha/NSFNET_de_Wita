@@ -1,4 +1,4 @@
-#Observações
+# Observações
 
 - Utilizar a versão miniconda com python 3.6 (versão 4.3.31)
 - Utilizar uma IDE (Pycharm compatível)
@@ -28,7 +28,7 @@ p(x, y, z, t)=&-\frac{1}{2} a^{2}\left[e^{2 a x}+e^{2 a y}+e^{2 a z}+2 \sin (a x
 &\left.+2 \sin (a z+d x) \cos (a y+d z) e^{a(x+y)}\right] e^{-2 d^{2} t}
 \end{aligned}$$
 
-$$e_{V P 1}=\partial_{t} u+u \partial_{x} u+v \partial_{y} u+w \partial_{z} u+\partial_{x} p-1 / \operatorname{Re}\left(\partial_{x x}^{2} u+\partial_{y y}^{2} u+\partial_{z z}^{2} u\right)$$
+$$ e_{V P 1}= \partial_{t} u+u \partial_{x} u+v \partial_{y} u+w \partial_{z} u+\partial_{x} p-1 / \operatorname{Re}\left(\partial_{x x}^{2} u+\partial_{y y}^{2} u+\partial_{z z}^{2} u\right) $$
 
 ## analytic solution for case 3 Beltrami flow
 
