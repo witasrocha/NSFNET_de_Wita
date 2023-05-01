@@ -6,7 +6,8 @@
 
 # NSFnets
 "Rede PINN" com proposta de resolver as equações de Navier–Stokes
-## tiny differences between those four NSFnets
+
+## Diferenças entre os arquivos disponíveis
 
 VP_NSFnets1.py simula o fluxo Kovasznay (2 dimensões no estado estacionário)  
 VP_NSFnets2.py simula o cilindro (2 dimensões e transiente)  
