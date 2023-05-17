@@ -295,12 +295,12 @@ if __name__ == "__main__":
     layers = [4, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 4]
 
     # Load Data
-    train_ini1 = np.load('train_ini2.npy')
-    train_iniv1 = np.load('train_iniv2.npy')
-    train_inip1 = np.load('train_inip2.npy')
-    train_xb1 = np.load('train_xb2.npy')
-    train_vb1 = np.load('train_vb2.npy')
-    train_pb1 = np.load('train_pb2.npy')
+    train_ini1 = np.load('datasets/train_ini2.npy')
+    train_iniv1 = np.load('datasets/train_iniv2.npy')
+    train_inip1 = np.load('datasets/train_inip2.npy')
+    train_xb1 = np.load('datasets/train_xb2.npy')
+    train_vb1 = np.load('datasets/train_vb2.npy')
+    train_pb1 = np.load('datasets/train_pb2.npy')
 
     xnode = np.linspace(12.47, 12.66, 191)
     ynode = np.linspace(-1, -0.0031, 998)

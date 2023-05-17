@@ -81,6 +81,7 @@ tf.set_random_seed(1234)
 ###################VP NSFnet#################
 #############################################
 
+
 class VPNSFnet:
     # Initialize the class
     def __init__(self, x0, y0, z0, t0, u0, v0, w0, xb, yb, zb, tb, ub, vb, wb, x, y, z, t, layers):
@@ -180,6 +181,7 @@ class VPNSFnet:
                                                    tf.gradients(self.w_b_tf, self.z_b_tf)[0])) + \
                     tf.reduce_sum(tf.square(self.f_u_pred) + tf.square(self.f_v_pred) + tf.square(self.f_w_pred) +
                                   tf.square(self.f_e1_pred) + tf.square(self.f_e2_pred) + tf.square(self.f_e3_pred))
+
 
         # set optimizer
         self.optimizer = tf.contrib.opt.ScipyOptimizerInterface(self.loss,

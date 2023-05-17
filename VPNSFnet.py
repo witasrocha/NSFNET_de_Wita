@@ -1,30 +1,22 @@
-# author Zihao Hu
-# time 5/27/2020
+# CONTRIBUIÇÃO DE WITÃ SANTOS
+# Data: 17/05/2023
 
 import sys
-import tenso
-rflow as tf
+
+sys.path.append('PINNs-master/Utilities')
+
+import tensorflow as tf
 import numpy as np
 import time
 
-# set random seed
-
-np.random.seed(1234)
-
-tf.set_random_seed(1234)
-
-#############################################
-###################VP NSFnet#################
-#############################################
-
 class VPNSFnet:
-    # Initialize the class
+    # inicializar a classe
     def __init__(self, x0, y0, z0, t0, u0, v0, w0, xb, yb, zb, tb, ub, vb, wb, x, y, z, t, layers):
         X0 = np.concatenate([x0, y0, z0, t0], 1)  # remove the second bracket
         Xb = np.concatenate([xb, yb, zb, tb], 1)
         X = np.concatenate([x, y, z, t], 1)
 
-        self.lowb = Xb.min(0)  # minimal number in each column
+        self.lowb = Xb.min(0)  # número mínimo em cada coluna
         self.upb = Xb.max(0)
 
         self.X0 = X0
@@ -56,12 +48,12 @@ class VPNSFnet:
 
         self.layers = layers
 
-        # Initialize NN
+        # Inicializar rede neural
         self.weights, self.biases = self.initialize_NN(layers)
 
         self.learning_rate = tf.placeholder(tf.float32, shape=[])
 
-        # tf placeholders and graph
+        # alocação do tensorflow
         self.sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True,
                                                      log_device_placement=True))
 
@@ -96,21 +88,26 @@ class VPNSFnet:
         alpha = 100
         beta = 100
 
-        # set loss function
-        self.loss_i = tf.reduce_sum(tf.square(self.u_ini_tf - self.u_ini_pred)) + \
-                      tf.reduce_sum(tf.square(self.v_ini_tf - self.v_ini_pred)) + \
-                      tf.reduce_sum(tf.square(self.w_ini_tf - self.w_ini_pred))
+        # definição da função perda
+        self.loss = alpha * tf.reduce_mean(tf.square(self.u_ini_tf - self.u_ini_pred)) + \
+                    alpha * tf.reduce_mean(tf.square(self.v_ini_tf - self.v_ini_pred)) + \
+                    alpha * tf.reduce_mean(tf.square(self.w_ini_tf - self.w_ini_pred)) + \
+                    beta * tf.reduce_mean(tf.square(self.u_boundary_tf - self.u_boundary_pred)) + \
+                    beta * tf.reduce_mean(tf.square(self.v_boundary_tf - self.v_boundary_pred)) + \
+                    beta * tf.reduce_mean(tf.square(self.w_boundary_tf - self.w_boundary_pred)) + \
+                    tf.reduce_mean(tf.square(self.f_u_pred)) + \
+                    tf.reduce_mean(tf.square(self.f_v_pred)) + \
+                    tf.reduce_mean(tf.square(self.f_w_pred)) + \
+                    tf.reduce_mean(tf.square(self.f_e_pred))
 
-        self.loss_b = tf.reduce_sum(tf.square(self.u_boundary_tf - self.u_boundary_pred)) + \
-                      tf.reduce_sum(tf.square(self.v_boundary_tf - self.v_boundary_pred)) + \
-                      tf.reduce_sum(tf.square(self.w_boundary_tf - self.w_boundary_pred))
-
-        self.loss_e = tf.reduce_sum(tf.square(self.f_u_pred)) + \
-                      tf.reduce_sum(tf.square(self.f_v_pred)) + \
-                      tf.reduce_sum(tf.square(self.f_w_pred)) + \
-                      tf.reduce_sum(tf.square(self.f_e_pred))
-
-        self.loss = alpha * self.loss_b + beta * self.loss_i + self.loss_e
+        # definição do otimização
+        self.optimizer = tf.contrib.opt.ScipyOptimizerInterface(self.loss,
+                                                                method='L-BFGS-B',
+                                                                options={'maxiter': 50000,
+                                                                         'maxfun': 50000,
+                                                                         'maxcor': 50,
+                                                                         'maxls': 50,
+                                                                         'ftol': 1.0 * np.finfo(float).eps})
 
         self.optimizer_Adam = tf.train.AdamOptimizer(self.learning_rate)
         self.train_op_Adam = self.optimizer_Adam.minimize(self.loss)
@@ -118,7 +115,7 @@ class VPNSFnet:
         init = tf.global_variables_initializer()
         self.sess.run(init)
 
-    # do not need adaptation
+    # Adaptação não necessária
     def initialize_NN(self, layers):
         weights = []
         biases = []
@@ -213,13 +210,11 @@ class VPNSFnet:
     # 需要除去 lambda_1
 
     def callback(self, loss):
-        print('Loss: %.3e' % (loss))
+        print('Loss: %.3e' % loss)
 
     def train(self, epoch=1000, nIter=150, learning_rate=1e-3):
-        loss_save = []
-        loss_b_save = []
-        loss_i_save = []
         for ep in range(epoch):
+
             batch_size1 = len(self.x0) // nIter
             batch_size2 = len(self.xb) // nIter
             batch_size3 = len(self.x) // nIter
@@ -257,26 +252,21 @@ class VPNSFnet:
                 self.sess.run(self.train_op_Adam, tf_dict)
 
                 # Print
-                if it % 49 == 0:
+                if it % 10 == 0:
                     elapsed = time.time() - start_time
                     loss_value = self.sess.run(self.loss, tf_dict)
-                    loss_i_value = self.sess.run(self.loss_i, tf_dict)
-                    loss_b_value = self.sess.run(self.loss_b, tf_dict)
-                    print('epoch: %d, It: %d, Loss: %.3e, Loss_i: %.3e, Loss_b: %.3e, Time: %.2f' %
-                          (ep, it, loss_value, loss_i_value, loss_b_value, elapsed))
+                    print('epoch: %d, It: %d, Loss: %.3e, Time: %.2f' %
+                          (ep, it, loss_value, elapsed))
                     start_time = time.time()
 
-                    if ep % 9 == 0:
-                        loss_save.append(loss_value)
-                        loss_b_save.append(loss_i_value)
-                        loss_i_save.append(loss_b_value)
-
-        return loss_save, loss_b_save, loss_i_save
-
-
-
+        self.optimizer.minimize(self.sess,
+                                feed_dict=tf_dict,
+                                fetches=[self.loss],
+                                loss_callback=self.callback)
 
     # 不需要改变 可能需要注意x_tf等
+
+    # TRADUZINDO, NÃO HÁ NECESSIDADE DE ALTERAR
 
     def predict(self, x_star, y_star, z_star, t_star):
 
@@ -288,88 +278,3 @@ class VPNSFnet:
         p_star = self.sess.run(self.p_pred, tf_dict)
 
         return u_star, v_star, w_star, p_star
-
-
-if __name__ == "__main__":
-    # when model is directly run this will implement
-    # supervised
-
-    N_train = 10000
-
-    layers = [4, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 4]
-
-    # Load Data
-    train_ini1 = np.load('train_ini2.npy')
-    train_iniv1 = np.load('train_iniv2.npy')
-    train_inip1 = np.load('train_inip2.npy')
-    train_xb1 = np.load('train_xb2.npy')
-    train_vb1 = np.load('train_vb2.npy')
-    train_pb1 = np.load('train_pb2.npy')
-
-    x0_train = train_ini1[:, 0:1]
-    y0_train = train_ini1[:, 1:2]
-    z0_train = train_ini1[:, 2:3]
-    t0_train = np.zeros(train_ini1[:, 0:1].shape, np.float32)
-    u0_train = train_iniv1[:, 0:1]
-    v0_train = train_iniv1[:, 1:2]
-    w0_train = train_iniv1[:, 2:3]
-
-    xb_train = train_xb1[:, 0:1]
-    yb_train = train_xb1[:, 1:2]
-    zb_train = train_xb1[:, 2:3]
-    tb_train = train_xb1[:, 3:4]
-    ub_train = train_vb1[:, 0:1]
-    vb_train = train_vb1[:, 1:2]
-    wb_train = train_vb1[:, 2:3]
-
-    xnode = np.linspace(12.47, 12.66, 191)
-    ynode = np.linspace(-1.0, -0.0031, 997)
-    znode = np.linspace(4.61, 4.82, 211)
-
-    x_train1 = xnode.reshape(-1, 1)[np.random.choice(191, 100000, replace=True), :]
-    y_train1 = ynode.reshape(-1, 1)[np.random.choice(201, 100000, replace=True), :]
-    z_train1 = znode.reshape(-1, 1)[np.random.choice(211, 100000, replace=True), :]
-    x_train = np.tile(x_train1, (17, 1))
-    y_train = np.tile(y_train1, (17, 1))
-    z_train = np.tile(z_train1, (17, 1))
-
-    total_times1 = np.array(list(range(17))) * 0.0065
-    t_train1 = total_times1.repeat(100000)
-    t_train = t_train1.reshape(-1, 1)
-
-    model = VPNSFnet(x0_train, y0_train, z0_train, t0_train,
-                     u0_train, v0_train, w0_train,
-                     xb_train, yb_train, zb_train, tb_train,
-                     ub_train, vb_train, wb_train,
-                     x_train, y_train, z_train, t_train, layers)
-
-    l1, e1, i1 = model.train(250, 150, 1e-3)
-    l2, e2, i2 = model.train(4250, 150, 1e-4)
-    l3, e3, i3 = model.train(500, 150, 1e-5)
-    l4, e4, i4 = model.train(500, 150, 1e-6)
-    loss_result = np.concatenate((l1, l2, l3, l4), 0)
-
-    time11 = np.array([1, 4, 7, 10, 13]) * 0.0065
-    test_t = time11.repeat(3000).reshape(-1, 1)
-    
-    # # Test Data
-    # x_star = (np.random.rand(100, 1) - 1 / 2) * 2
-    # y_star = (np.random.rand(100, 1) - 1 / 2) * 2
-    # z_star = (np.random.rand(100, 1) - 1 / 2) * 2
-    # t_star = np.random.randint(11, size=(100, 1)) / 10
-    #
-    # u_star, v_star, w_star, p_star = data_generate(x_star, y_star, z_star, t_star)
-    #
-    # # Prediction
-    # u_pred, v_pred, w_pred, p_pred = model.predict(x_star, y_star, z_star, t_star)
-    #
-    # # Error
-    # error_u = np.linalg.norm(u_star - u_pred, 2) / np.linalg.norm(u_star, 2)
-    # error_v = np.linalg.norm(v_star - v_pred, 2) / np.linalg.norm(v_star, 2)
-    # error_w = np.linalg.norm(w_star - w_pred, 2) / np.linalg.norm(w_star, 2)
-    # error_p = np.linalg.norm(p_star - p_pred, 2) / np.linalg.norm(p_star, 2)
-    #
-    # print('Error u: %e' % (error_u))
-    # print('Error v: %e' % (error_v))
-    # print('Error v: %e' % (error_w))
-    # print('Error p: %e' % (error_p))
