@@ -150,7 +150,7 @@ class VPNSFnet:
         return Y
 
     # ###################without assume###############
-    # supervised train
+    # Treino supervisionado
     def net_NS(self, x, y, z, t):
 
         u_v_w_p = self.neural_net(tf.concat([x, y, z, t], 1), self.weights, self.biases)
@@ -161,7 +161,7 @@ class VPNSFnet:
 
         return u, v, w, p
 
-    # unsupervised train
+    # treino não supervisionado
     def net_f_NS(self, x, y, z, t):
 
         Re = 999.35

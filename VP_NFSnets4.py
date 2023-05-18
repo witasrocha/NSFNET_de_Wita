@@ -9,6 +9,8 @@ import tensorflow as tf
 import numpy as np
 import time
 from NSFNET_de_Wita import VPNSFnet
+import django
+
 
 # set random seed
 np.random.seed(1234)
