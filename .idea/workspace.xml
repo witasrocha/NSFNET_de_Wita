@@ -2,7 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4510c4b9-532e-4c15-8491-87bd6fab98f2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controller/App.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/CarregaBases.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/datasets/train_ini1.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/datasets/train_ini2.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/datasets/train_inip1.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/datasets/train_inip2.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/datasets/train_iniv1.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/datasets/train_iniv2.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/datasets/train_pb1.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/datasets/train_pb2.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/datasets/train_vb1.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/datasets/train_vb2.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/datasets/train_xb1.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/datasets/train_xb2.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/nsfnet/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/redepinn/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/redepinn/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/redepinn/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/redepinn/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redepinn/redepinn/wsgi.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,25 +46,75 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VP_NFSnets1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
+            <state relative-caret-position="1870">
               <caret line="110" column="8" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="136">
-                <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-              </first_editor>
-              <second_editor />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VP_NSFnets42.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/CarregaBases.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VP_NFSnets4.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="29" column="69" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controller/App.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/View/Main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VPNSFnet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-153" />
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -48,6 +129,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/redepinn/nsfnet/models.py" />
+        <option value="$PROJECT_DIR$/redepinn/nsfnet/views.py" />
+        <option value="$PROJECT_DIR$/Controller/App.py" />
+        <option value="$PROJECT_DIR$/Model/CarregaBases.py" />
+        <option value="$PROJECT_DIR$/View/Main.py" />
       </list>
     </option>
   </component>
@@ -67,8 +153,23 @@
         <subPane>
           <expand>
             <path>
-              <item name="NFSNET" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NFSNET" type="462c0819:PsiDirectoryNode" />
+              <item name="NSFNET_de_Wita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NSFNET_de_Wita" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NSFNET_de_Wita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NSFNET_de_Wita" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NSFNET_de_Wita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NSFNET_de_Wita" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NSFNET_de_Wita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NSFNET_de_Wita" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -93,7 +194,49 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.Main">
+    <configuration name="CarregaBases" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="NFSNET" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Model" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Model/CarregaBases.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="NFSNET" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/View" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/View/Main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="VP_NFSnets1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="NFSNET" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -117,6 +260,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Main" />
+        <item itemvalue="Python.CarregaBases" />
         <item itemvalue="Python.VP_NFSnets1" />
       </list>
     </recent_temporary>
@@ -158,13 +303,13 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.39116204" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39116204" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -184,20 +329,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VP_NFSnets1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="110" column="8" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="136">
-            <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <caret line="8" selection-start-line="8" selection-end-line="8" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redepinn/redepinn/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-63" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redepinn/redepinn/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redepinn/redepinn/settings.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redepinn/nsfnet/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redepinn/redepinn/asgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#224#233#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redepinn/nsfnet/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VPNSFnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VP_NSFnets42.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VP_NFSnets1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="110" column="8" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VP_NFSnets4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="29" column="69" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/App.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/CarregaBases.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
