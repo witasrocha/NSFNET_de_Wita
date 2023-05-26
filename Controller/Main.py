@@ -22,6 +22,8 @@ if __name__ == '__main__':
       train_vb1 = cb.train_vb1
       train_xb1 = cb.train_xb1
 
+
+      # Condições iniciais
       x0_train = train_ini1[:, 0:1]
       y0_train = train_ini1[:, 1:2]
       z0_train = train_ini1[:, 2:3]
