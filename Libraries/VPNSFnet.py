@@ -3,7 +3,7 @@
 
 import sys
 
-sys.path.append('PINNs-master/Utilities')
+# sys.path.append('PINNs-master/Utilities')
 
 import tensorflow as tf
 import numpy as np
@@ -51,32 +51,32 @@ class VPNSFnet:
         # Inicializar rede neural
         self.weights, self.biases = self.initialize_NN(layers)
 
-        self.learning_rate = tf.placeholder(tf.float32, shape=[])
+        self.learning_rate = tf.compat.v1.placeholder(tf.float32, shape=[])
 
         # alocação do tensorflow
-        self.sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True,
+        self.sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(allow_soft_placement=True,
                                                      log_device_placement=True))
 
-        self.x_ini_tf = tf.placeholder(tf.float32, shape=[None, self.x0.shape[1]])
-        self.y_ini_tf = tf.placeholder(tf.float32, shape=[None, self.y0.shape[1]])
-        self.z_ini_tf = tf.placeholder(tf.float32, shape=[None, self.z0.shape[1]])
-        self.t_ini_tf = tf.placeholder(tf.float32, shape=[None, self.t0.shape[1]])
-        self.u_ini_tf = tf.placeholder(tf.float32, shape=[None, self.u0.shape[1]])
-        self.v_ini_tf = tf.placeholder(tf.float32, shape=[None, self.v0.shape[1]])
-        self.w_ini_tf = tf.placeholder(tf.float32, shape=[None, self.w0.shape[1]])
+        self.x_ini_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.x0.shape[1]])
+        self.y_ini_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.y0.shape[1]])
+        self.z_ini_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.z0.shape[1]])
+        self.t_ini_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.t0.shape[1]])
+        self.u_ini_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.u0.shape[1]])
+        self.v_ini_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.v0.shape[1]])
+        self.w_ini_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.w0.shape[1]])
 
-        self.x_boundary_tf = tf.placeholder(tf.float32, shape=[None, self.xb.shape[1]])
-        self.y_boundary_tf = tf.placeholder(tf.float32, shape=[None, self.yb.shape[1]])
-        self.z_boundary_tf = tf.placeholder(tf.float32, shape=[None, self.zb.shape[1]])
-        self.t_boundary_tf = tf.placeholder(tf.float32, shape=[None, self.tb.shape[1]])
-        self.u_boundary_tf = tf.placeholder(tf.float32, shape=[None, self.ub.shape[1]])
-        self.v_boundary_tf = tf.placeholder(tf.float32, shape=[None, self.vb.shape[1]])
-        self.w_boundary_tf = tf.placeholder(tf.float32, shape=[None, self.wb.shape[1]])
+        self.x_boundary_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.xb.shape[1]])
+        self.y_boundary_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.yb.shape[1]])
+        self.z_boundary_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.zb.shape[1]])
+        self.t_boundary_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.tb.shape[1]])
+        self.u_boundary_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.ub.shape[1]])
+        self.v_boundary_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.vb.shape[1]])
+        self.w_boundary_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.wb.shape[1]])
 
-        self.x_tf = tf.placeholder(tf.float32, shape=[None, self.x.shape[1]])
-        self.y_tf = tf.placeholder(tf.float32, shape=[None, self.y.shape[1]])
-        self.z_tf = tf.placeholder(tf.float32, shape=[None, self.z.shape[1]])
-        self.t_tf = tf.placeholder(tf.float32, shape=[None, self.t.shape[1]])
+        self.x_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.x.shape[1]])
+        self.y_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.y.shape[1]])
+        self.z_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.z.shape[1]])
+        self.t_tf = tf.compat.v1.placeholder(tf.float32, shape=[None, self.t.shape[1]])
 
         self.u_ini_pred, self.v_ini_pred, self.w_ini_pred, self.p_ini_pred = \
             self.net_NS(self.x_ini_tf, self.y_ini_tf, self.z_ini_tf, self.t_ini_tf)
@@ -109,7 +109,7 @@ class VPNSFnet:
                                                                          'maxls': 50,
                                                                          'ftol': 1.0 * np.finfo(float).eps})
 
-        self.optimizer_Adam = tf.train.AdamOptimizer(self.learning_rate)
+        self.optimizer_Adam = tf.compat.v1.train.AdamOptimizer(self.learning_rate)
         self.train_op_Adam = self.optimizer_Adam.minimize(self.loss)
 
         init = tf.global_variables_initializer()
@@ -133,7 +133,7 @@ class VPNSFnet:
         in_dim = size[0]
         out_dim = size[1]
         xavier_stddev = np.sqrt(2 / (in_dim + out_dim))
-        return tf.Variable(tf.truncated_normal([in_dim, out_dim], stddev=xavier_stddev), dtype=tf.float32)
+        return tf.Variable(tf.random.truncated_normal([in_dim, out_dim], stddev=xavier_stddev), dtype=tf.float32)
 
     # do not need adaptation
     def neural_net(self, X, weights, biases):

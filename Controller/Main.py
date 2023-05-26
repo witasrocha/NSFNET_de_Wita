@@ -49,18 +49,20 @@ if __name__ == '__main__':
       t_train1 = total_times1.repeat(100000)
       t_train = t_train1.reshape(-1, 1)
 
+      # Uso da rede neural
       model = VPNSFnet.VPNSFnet(x0_train, y0_train, z0_train, t0_train,
                                 u0_train, v0_train, w0_train,
                                 xb_train, yb_train, zb_train, tb_train,
                                 ub_train, vb_train, wb_train,
                                 x_train, y_train, z_train, t_train, layers)
 
+      # treinos da rede
       model.train(250, 150, 1e-3)
       model.train(4250, 150, 1e-4)
       model.train(500, 150, 1e-5)
       model.train(500, 150, 1e-6)
 
-      # # Test Data
+      # # Casos de teste
       # x_star = (np.random.rand(100, 1) - 1 / 2) * 2
       # y_star = (np.random.rand(100, 1) - 1 / 2) * 2
       # z_star = (np.random.rand(100, 1) - 1 / 2) * 2
