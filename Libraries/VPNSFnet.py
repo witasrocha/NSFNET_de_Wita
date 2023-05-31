@@ -101,6 +101,7 @@ class VPNSFnet:
                     tf.reduce_mean(tf.square(self.f_e_pred))
 
         # definição do otimização
+
         self.optimizer = tf.contrib.opt.ScipyOptimizerInterface(self.loss,
                                                                 #method='L-BFGS-B',
                                                                 method='SLSQP',

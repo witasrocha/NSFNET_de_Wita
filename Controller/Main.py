@@ -1,8 +1,30 @@
-import Model.CarregaBases as cb
-import View.View as v
-import Libraries.VPNSFnet as VPNSFnet
-
+import NSFNET_de_Wita.Model.CarregaBases as cb
+#import View.View as v
+import NSFNET_de_Wita.Libraries.VPNSFnet as VPNSFnet
+import tensorflow as tf
+import ctypes
 if __name__ == '__main__':
+
+      hllDll=ctypes.WinDLL('C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.0/bin/cudart64_100.dll')
+      hllDll1=ctypes.WinDLL('C:/Program Files/NVIDIA GPU Computing Toolkit/cuda-dnn/bin/cudnn64_7.dll')
+
+      tf.config.set_soft_device_placement(True)
+      tf.debugging.set_log_device_placement(True)
+
+      # gpus = tf.config.experimental.list_physical_devices('GPU')
+      # if gpus:
+      #       # Restrict TensorFlow to only use the first GPU
+      #       try:
+      #             tf.config.experimental.set_visible_devices(
+      #                   gpus[0],
+      #                   [tf.config.LogicalDeviceConfiguration(memory_limit=1024),
+      #                    tf.config.LogicalDeviceConfiguration(memory_limit=1024)])
+      #             logical_gpus = tf.config.experimental.list_logical_devices('GPU')
+      #             print(len(gpus), "Physical GPUs,", len(logical_gpus), "Logical GPU")
+      #       except RuntimeError as e:
+      #             # Visible devices must be set before GPUs have been initialized
+      #             print(e)
+
       # Definição dos parâmetros iniciais da rede neural
 
       N_train = 1000
