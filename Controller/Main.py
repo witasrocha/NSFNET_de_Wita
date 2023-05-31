@@ -5,6 +5,7 @@ import tensorflow as tf
 import ctypes
 if __name__ == '__main__':
 
+      # Colocar esse caminhhos nas variáveis de ambiente também
       hllDll=ctypes.WinDLL('C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.0/bin/cudart64_100.dll')
       hllDll1=ctypes.WinDLL('C:/Program Files/NVIDIA GPU Computing Toolkit/cuda-dnn/bin/cudnn64_7.dll')
 

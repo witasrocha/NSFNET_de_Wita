@@ -1,3 +1,9 @@
+# Requisitos
+
+- CUDA 10 e CUDnn 7.3
+- Uso do Tensorflow 1.14
+- Tensorflow-GPU 1.14
+- Python 3.7
 # Observações
 
 - Utilizar a versão miniconda com python 3.6 (versão 4.3.31)
