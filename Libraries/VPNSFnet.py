@@ -102,7 +102,8 @@ class VPNSFnet:
 
         # definição do otimização
         self.optimizer = tf.contrib.opt.ScipyOptimizerInterface(self.loss,
-                                                                method='L-BFGS-B',
+                                                                #method='L-BFGS-B',
+                                                                method='SLSQP',
                                                                 options={'maxiter': 50000,
                                                                          'maxfun': 50000,
                                                                          'maxcor': 50,
